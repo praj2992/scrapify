@@ -1,0 +1,9 @@
+os
+torch
+flask
+flask-cors
+matplotlib
+torchvision
+PIL
+requests
+BytesIO
