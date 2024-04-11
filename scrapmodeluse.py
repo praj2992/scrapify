@@ -1,17 +1,21 @@
+import streamlit as st
 import os
 import torch
+import accuracy as ac
 import torchvision
-from torch.testing._internal.common_quantization import accuracy
+from flask_cors import CORS
 from torch.utils.data import random_split
 import torchvision.models as models
 import torch.nn as nn
 import torch.nn.functional as F
 
+
+st.title('Scrapify')
+
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
 
 class ImageClassificationBase(nn.Module):
     def training_step(self, batch):
@@ -117,3 +121,4 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
